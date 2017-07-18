@@ -1,7 +1,5 @@
 package db.demo.util;
 
-import db.demo.security.Action;
-import db.demo.security.Group;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
@@ -11,11 +9,7 @@ public class HibernateUtil {
 
     static {
         try {
-            sessionFactory = new Configuration()
-                    .configure()
-                    .addAnnotatedClass(Group.class)
-                    .addAnnotatedClass(Action.class)
-                    .buildSessionFactory();
+            sessionFactory = new Configuration().configure().buildSessionFactory();
         } catch (Throwable throwable) {
             throw new IllegalStateException(throwable);
         }
